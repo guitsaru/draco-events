@@ -1,8 +1,43 @@
 # Draco::Events
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/draco/events`. To experiment with that code, run `bin/console` for an interactive prompt.
+This library provides an event bus and observer functionality for [Draco](https://github.com/guitsaru/draco).
 
-TODO: Delete this and the text above, and describe your gem
+## Usage
+
+### Worlds
+
+```ruby
+class World < Draco::World
+  include Draco::Events
+
+  observe CleanupDestroyed
+  observe GameOverScreen, component: Dead, on: :add
+  observe PlayMusic, component: Mute, on: :remove
+end
+
+world = World.new
+
+world.dispatch(ShowMenu)
+world.dispatch(SellUnit, [unit_one, unit_two])
+```
+
+### Dispatch
+
+Dispatch allows you to run a System on demand rather than on every tick. These will run at the beginning of the next click.
+
+There are two ways to dispatch an event:
+
+* `world.dispatch(System)` will run the system using the System's filter on all the entities in the world.
+* `world.dispatch(System, entities)` will run the system on the entities you gave it.
+
+### Observers
+
+Observers let you automatically dispatch an event any time a component is added or removed.
+
+* `observe System` will run `System` every time a component is added that causes the entity to match the system's filter.
+* `observe System, component: AnotherComponent` will run `System` every time `AnotherComponent` is added or removed and the entity matches the system's filter.
+* `observe System, component: AnotherComponent, on: :add` will run `System` every time `AnotherComponent` is added and the entity matches the system's filter.
+* `observe System, component: AnotherComponent, on: :remove` will run `System` every time `AnotherComponent` is removed and the entity matches the system's filter.
 
 ## Installation
 
@@ -19,10 +54,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install draco-events
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 

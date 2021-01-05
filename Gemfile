@@ -5,3 +5,5 @@ gemspec
 
 gem "rake", "~> 12.0"
 gem "rspec", "~> 3.0"
+gem "mocha"
+gem "draco", git: "https://github.com/guitsaru/draco", branch: "better-entity-callbacks"

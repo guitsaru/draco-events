@@ -1,0 +1,44 @@
+GIT
+  remote: https://github.com/guitsaru/draco
+  revision: 00b1b2c8b6abe64bf63f8cef08afe13f315b0e0b
+  branch: better-entity-callbacks
+  specs:
+    draco (0.5.1)
+
+PATH
+  remote: .
+  specs:
+    draco-events (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    diff-lcs (1.4.4)
+    mocha (1.12.0)
+    rake (12.3.3)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  draco!
+  draco-events!
+  mocha
+  rake (~> 12.0)
+  rspec (~> 3.0)
+
+BUNDLED WITH
+   2.2.3

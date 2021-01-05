@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "draco"
 require "draco/events"
 
 RSpec.configure do |config|
@@ -7,6 +8,7 @@ RSpec.configure do |config|
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
+  config.mock_with :mocha
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
